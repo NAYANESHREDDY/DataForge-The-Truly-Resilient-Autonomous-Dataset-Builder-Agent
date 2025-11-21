@@ -1,0 +1,391 @@
+id: dataforge_build_me_a_dataset_for_predicting_airbnb_20251121T184912Z_3614a4
+title: dataforge_build_me_a_dataset_for_predicting_airbnb_20251121T184912Z_3614a4
+prompt: Build me a dataset for predicting Airbnb rental prices in Bangalore 2025 with
+  bedrooms, location, amenities, reviews, nights_booked, price
+schema:
+- name: id
+  type: int
+  description: unique id
+  example: 1
+- name: listing_id
+  type: string
+  description: Unique identifier for the Airbnb listing.
+  example: AB123456789
+- name: num_bedrooms
+  type: integer
+  description: Number of bedrooms available in the listing.
+  example: 2
+- name: num_bathrooms
+  type: float
+  description: Number of bathrooms in the listing (can be half-bath).
+  example: 1.5
+- name: accommodates_guests
+  type: integer
+  description: Maximum number of guests the listing can accommodate.
+  example: 4
+- name: property_type
+  type: string
+  description: Type of property (e.g., 'Apartment', 'House', 'Villa', 'Condo').
+  example: Apartment
+- name: room_type
+  type: string
+  description: Type of room being rented (e.g., 'Entire home/apt', 'Private room',
+    'Shared room').
+  example: Entire home/apt
+- name: location_neighborhood
+  type: string
+  description: Specific neighborhood or area in Bangalore where the listing is located.
+  example: Koramangala
+- name: latitude
+  type: float
+  description: Latitude coordinate of the listing.
+  example: 12.9352
+- name: longitude
+  type: float
+  description: Longitude coordinate of the listing.
+  example: 77.6105
+- name: amenities_list
+  type: list_of_strings
+  description: List of amenities offered by the Airbnb listing.
+  example:
+  - WiFi
+  - AC
+  - Kitchen
+  - Free Parking
+  - Pool
+- name: host_is_superhost
+  type: boolean
+  description: Indicates if the host has Superhost status.
+  example: true
+- name: average_guest_rating
+  type: float
+  description: Average overall guest rating for the listing (on a scale of 0-5).
+  example: 4.85
+- name: num_reviews
+  type: integer
+  description: Total number of reviews received by the listing.
+  example: 150
+- name: historical_occupancy_rate_percent
+  type: float
+  description: Average occupancy rate (nights booked / available nights) for the listing
+    in the previous year (e.g., 2024).
+  example: 75.5
+- name: minimum_nights_stay
+  type: integer
+  description: Minimum number of nights required for a booking.
+  example: 2
+- name: distance_to_city_center_km
+  type: float
+  description: Straight-line distance from the listing to Bangalore city center (e.g.,
+    MG Road) in kilometers.
+  example: 5.2
+- name: public_transport_proximity
+  type: string
+  description: Categorical indicator of proximity to public transport (e.g., 'Excellent',
+    'Good', 'Moderate', 'Poor').
+  example: Excellent
+- name: seasonal_period
+  type: string
+  description: Indicates the typical seasonal demand period for the month (e.g., 'Peak',
+    'Off-peak', 'Shoulder').
+  example: Peak
+- name: local_demand_index_2025
+  type: float
+  description: A projected index representing local demand growth for the specific
+    area in 2025, relative to 2024 (e.g., 1.08 indicates 8% growth).
+  example: 1.08
+- name: price_per_night_inr
+  type: float
+  description: Predicted average nightly price in Indian Rupees for the year 2025.
+  example: 3500.5
+created_at: '2025-11-21T18:49:12.510790+00:00'
+rows: 8000
+validation:
+  ok: true
+  r2: -0.0011066710676688185
+fallback_used: true
+provenance:
+  synthetic: true
+  method: task_aware
+history:
+- ts: '2025-11-21T18:48:47.021857+00:00'
+  role: user
+  message: Build me a dataset for predicting Airbnb rental prices in Bangalore 2025
+    with bedrooms, location, amenities, reviews, nights_booked, price
+- ts: '2025-11-21T18:48:47.021866+00:00'
+  role: TopicExpander
+  message: 'Expanding prompt: Build me a dataset for predicting Airbnb rental prices
+    in Bangalore 2025 with bedrooms, location, amenities, reviews, nights_booked,
+    price'
+- ts: '2025-11-21T18:49:06.029372+00:00'
+  role: TopicExpander
+  message: Used Gemini for expansion
+- ts: '2025-11-21T18:49:06.029410+00:00'
+  role: SourceScout
+  message: Starting scout for 10 queries
+- ts: '2025-11-21T18:49:06.034555+00:00'
+  role: SourceScout
+  message: 'Found 3 candidates for query: Airbnb amenities impact on price Bangalore'
+- ts: '2025-11-21T18:49:06.034577+00:00'
+  role: SourceScout
+  message: 'Found 3 candidates for query: Bangalore short-term rental regulations'
+- ts: '2025-11-21T18:49:06.034585+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Bangalore tourism growth predictions'
+- ts: '2025-11-21T18:49:06.034592+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Historic Airbnb occupancy rates Bangalore'
+- ts: '2025-11-21T18:49:06.034598+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Luxury apartment rental prices Bangalore'
+- ts: '2025-11-21T18:49:06.034603+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Cost of living Bangalore 2025 projections'
+- ts: '2025-11-21T18:49:06.034609+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Airbnb Bangalore rental data 2023 2024'
+- ts: '2025-11-21T18:49:06.034615+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: India economic outlook 2025 real estate'
+- ts: '2025-11-21T18:49:06.037458+00:00'
+  role: SourceScout
+  message: Scout finished. 12 unique candidates.
+- ts: '2025-11-21T18:49:06.037598+00:00'
+  role: EthicalGatekeeper
+  message: Gatekeeper accepted 9; rejected 3
+- ts: '2025-11-21T18:49:06.037615+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Airbnb%20amenities%20impact%20on%20price%20Bangalore'
+- ts: '2025-11-21T18:49:06.323612+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:06.323657+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Airbnb%20amenities%20impact%20on%20price%20Bangalore'
+- ts: '2025-11-21T18:49:06.821349+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Airbnb%20amenities%20impact%20on%20price%20Bangalore
+    (status=404)
+- ts: '2025-11-21T18:49:06.821387+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Bangalore%20short-term%20rental%20regulations'
+- ts: '2025-11-21T18:49:06.933594+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:06.933629+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Bangalore%20short-term%20rental%20regulations'
+- ts: '2025-11-21T18:49:07.392795+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Bangalore%20short-term%20rental%20regulations
+    (status=404)
+- ts: '2025-11-21T18:49:07.392833+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Bangalore%20tourism%20growth%20predictions'
+- ts: '2025-11-21T18:49:07.550445+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:07.550491+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Historic%20Airbnb%20occupancy%20rates%20Bangalore'
+- ts: '2025-11-21T18:49:08.025573+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Historic%20Airbnb%20occupancy%20rates%20Bangalore
+    (status=404)
+- ts: '2025-11-21T18:49:08.025614+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://huggingface.co/datasets?q=Cost%20of%20living%20Bangalore%202025%20projections'
+- ts: '2025-11-21T18:49:08.374226+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 1 fields
+    in line 6, saw 3
+
+    '
+- ts: '2025-11-21T18:49:08.374268+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Airbnb%20Bangalore%20rental%20data%202023%202024'
+- ts: '2025-11-21T18:49:08.532183+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:08.532232+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://huggingface.co/datasets?q=India%20economic%20outlook%202025%20real%20estate'
+- ts: '2025-11-21T18:49:08.808712+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 1 fields
+    in line 6, saw 3
+
+    '
+- ts: '2025-11-21T18:49:08.808759+00:00'
+  role: SourceScout
+  message: Starting scout for 10 queries
+- ts: '2025-11-21T18:49:08.811591+00:00'
+  role: SourceScout
+  message: 'Found 2 candidates for query: Luxury apartment rental prices Bangalore'
+- ts: '2025-11-21T18:49:08.811608+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Bangalore short-term rental regulations'
+- ts: '2025-11-21T18:49:08.811615+00:00'
+  role: SourceScout
+  message: 'Found 3 candidates for query: Airbnb Bangalore rental data 2023 2024'
+- ts: '2025-11-21T18:49:08.811620+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: Average rent Bangalore by neighborhood'
+- ts: '2025-11-21T18:49:08.811625+00:00'
+  role: SourceScout
+  message: 'Found 2 candidates for query: Bangalore tourism growth predictions'
+- ts: '2025-11-21T18:49:08.811630+00:00'
+  role: SourceScout
+  message: 'Found 1 candidates for query: India economic outlook 2025 real estate'
+- ts: '2025-11-21T18:49:08.811634+00:00'
+  role: SourceScout
+  message: 'Found 2 candidates for query: Bangalore property market forecast 2025'
+- ts: '2025-11-21T18:49:08.811641+00:00'
+  role: SourceScout
+  message: 'Found 4 candidates for query: Airbnb amenities impact on price Bangalore'
+- ts: '2025-11-21T18:49:08.814434+00:00'
+  role: SourceScout
+  message: Scout finished. 16 unique candidates.
+- ts: '2025-11-21T18:49:08.814546+00:00'
+  role: EthicalGatekeeper
+  message: Gatekeeper accepted 13; rejected 3
+- ts: '2025-11-21T18:49:08.814559+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Luxury%20apartment%20rental%20prices%20Bangalore'
+- ts: '2025-11-21T18:49:09.097758+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Luxury%20apartment%20rental%20prices%20Bangalore
+    (status=404)
+- ts: '2025-11-21T18:49:09.097809+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Bangalore%20short-term%20rental%20regulations'
+- ts: '2025-11-21T18:49:09.268024+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:09.268065+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://huggingface.co/datasets?q=Airbnb%20Bangalore%20rental%20data%202023%202024'
+- ts: '2025-11-21T18:49:09.547958+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 1 fields
+    in line 6, saw 3
+
+    '
+- ts: '2025-11-21T18:49:09.547998+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Airbnb%20Bangalore%20rental%20data%202023%202024'
+- ts: '2025-11-21T18:49:09.664340+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:09.664379+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Average%20rent%20Bangalore%20by%20neighborhood'
+- ts: '2025-11-21T18:49:09.900588+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Average%20rent%20Bangalore%20by%20neighborhood
+    (status=404)
+- ts: '2025-11-21T18:49:09.900633+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Bangalore%20tourism%20growth%20predictions'
+- ts: '2025-11-21T18:49:10.014696+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:10.014739+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Bangalore%20tourism%20growth%20predictions'
+- ts: '2025-11-21T18:49:10.251663+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Bangalore%20tourism%20growth%20predictions
+    (status=404)
+- ts: '2025-11-21T18:49:10.251707+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=India%20economic%20outlook%202025%20real%20estate'
+- ts: '2025-11-21T18:49:10.409040+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:10.409083+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://huggingface.co/datasets?q=Bangalore%20property%20market%20forecast%202025'
+- ts: '2025-11-21T18:49:10.671423+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 1 fields
+    in line 6, saw 3
+
+    '
+- ts: '2025-11-21T18:49:10.671461+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Bangalore%20property%20market%20forecast%202025'
+- ts: '2025-11-21T18:49:10.784251+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:10.784289+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://huggingface.co/datasets?q=Airbnb%20amenities%20impact%20on%20price%20Bangalore'
+- ts: '2025-11-21T18:49:11.051882+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 1 fields
+    in line 6, saw 3
+
+    '
+- ts: '2025-11-21T18:49:11.051918+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: http://insideairbnb.com/get-the-data.html?q=Airbnb%20amenities%20impact%20on%20price%20Bangalore'
+- ts: '2025-11-21T18:49:11.226540+00:00'
+  role: HarvesterCleaner
+  message: 'Could not parse as CSV: Error tokenizing data. C error: Expected 3 fields
+    in line 5, saw 1219
+
+    '
+- ts: '2025-11-21T18:49:11.226591+00:00'
+  role: HarvesterCleaner
+  message: 'Attempting download: https://data.gov/search?query=Airbnb%20amenities%20impact%20on%20price%20Bangalore'
+- ts: '2025-11-21T18:49:11.296309+00:00'
+  role: HarvesterCleaner
+  message: Failed to download https://data.gov/search?query=Airbnb%20amenities%20impact%20on%20price%20Bangalore
+    (status=404)
+- ts: '2025-11-21T18:49:11.296360+00:00'
+  role: SyntheticFallback
+  message: 'Generating 8000 synthetic rows for prompt: Build me a dataset for predicting
+    Airbnb rental prices in Bangalore 2025 with bedrooms, location, amenities, reviews,
+    nights_booked, price'
+- ts: '2025-11-21T18:49:12.335966+00:00'
+  role: SyntheticFallback
+  message: 'Synthetic dataset generated: 8000 rows, columns: [''id'', ''listing_id'',
+    ''num_bedrooms'', ''num_bathrooms'', ''accommodates_guests'', ''property_type'',
+    ''room_type'', ''location_neighborhood'', ''latitude'', ''longitude'', ''amenities_list'',
+    ''host_is_superhost'', ''average_guest_rating'', ''num_reviews'', ''historical_occupancy_rate_percent'',
+    ''minimum_nights_stay'', ''distance_to_city_center_km'', ''public_transport_proximity'',
+    ''seasonal_period'', ''local_demand_index_2025'', ''price_per_night_inr'']'
+- ts: '2025-11-21T18:49:12.338893+00:00'
+  role: ValidatorEnricher
+  message: Running baseline evaluation on 8000 rows
+- ts: '2025-11-21T18:49:12.398071+00:00'
+  role: ValidatorEnricher
+  message: 'Baseline R2: -0.001'

@@ -1,0 +1,37 @@
+{
+  "dataset_csv": "dataforge_build_me_a_dataset_for_predicting_airbnb_20251121T184912Z_3614a4.csv",
+  "sha256": "2d09229d6db5bbe10e1fa6d876575f6375c588dd9382333f25dce4999e9827f4",
+  "rows": 8000,
+  "schema": [
+    "id",
+    "listing_id",
+    "num_bedrooms",
+    "num_bathrooms",
+    "accommodates_guests",
+    "property_type",
+    "room_type",
+    "location_neighborhood",
+    "latitude",
+    "longitude",
+    "amenities_list",
+    "host_is_superhost",
+    "average_guest_rating",
+    "num_reviews",
+    "historical_occupancy_rate_percent",
+    "minimum_nights_stay",
+    "distance_to_city_center_km",
+    "public_transport_proximity",
+    "seasonal_period",
+    "local_demand_index_2025",
+    "price_per_night_inr"
+  ],
+  "prompt": "Build me a dataset for predicting Airbnb rental prices in Bangalore 2025 with bedrooms, location, amenities, reviews, nights_booked, price",
+  "seed": 12345,
+  "created_at": "2025-11-21T18:49:39.279008Z",
+  "fallback_used": true,
+  "generator_details": {
+    "synthetic": true,
+    "method": "task_aware"
+  },
+  "llm_used": true
+}

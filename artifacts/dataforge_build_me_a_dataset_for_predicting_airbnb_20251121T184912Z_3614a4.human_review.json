@@ -1,0 +1,8 @@
+{
+  "dataset": "dataforge_build_me_a_dataset_for_predicting_airbnb_20251121T184912Z_3614a4.csv",
+  "reviewer": "",
+  "review_date": null,
+  "issues_found": [],
+  "accept": null,
+  "notes": "Please inspect distributions and column semantics. If synthetic, check provenance."
+}
