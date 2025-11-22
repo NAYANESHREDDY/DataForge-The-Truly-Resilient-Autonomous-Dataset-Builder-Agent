@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+scipy
+faker
+pyyaml
+tqdm
+matplotlib
+seaborn
+ydata-profiling
+requests
+google-genai
+python-dateutil
