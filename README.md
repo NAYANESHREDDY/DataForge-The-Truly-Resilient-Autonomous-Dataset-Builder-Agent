@@ -1,139 +1,131 @@
-# DataForge-The-Truly-Resilient-Autonomous-Dataset-Builder-Agent
+3) README.md (polished root README for judges)
+
+Create or replace README.md in the repo root with the following content (it includes links, license & citation blocks and points judges will look for):
+
+# DataForge — The Resilient Autonomous Dataset Builder Agent
+
+**Short description:**  
 DataForge turns a single natural-language prompt into a Kaggle-ready CSV + metadata YAML in under 5 minutes — and still succeeds when every real source returns 403/404.
-DataForge Artifact — Airbnb Dataset (2025-11-21)
 
-Run ID: dataforge_build_me_a_dataset_for_predicting_airbnb_20251121T184912Z_3614a4
-Domain: Short-term rental demand / Airbnb analytics
-Purpose: Predicting future Airbnb occupancy, pricing, and guest rating patterns for 2025.
+---
 
-📌 Overview
+## Quick links
+- Notebook / Demo: `notebooks/dataforge.ipynb` *(add if available)*
+- Artifacts (example run): `artifacts/airbnb_20251121/`
+- Architecture diagram: `architecture.png`
+- Kaggle submission writeup: *(link to your Kaggle writeup once published)*
 
-This folder contains all generated artifacts for a complete DataForge pipeline run triggered by the prompt:
+---
 
-“Build me a dataset for predicting Airbnb in 2025.”
+## What this project does
+DataForge is a multi-agent pipeline (TopicExpander → SourceScout → EthicalGatekeeper → DataHarvester/Cleaner → ValidatorEnricher → SyntheticFallback) that automates dataset creation from a single prompt. It either harvests and merges public sources or, if no safe sources are available, generates realistic domain-aware synthetic data — annotated with full provenance, validation metrics, and reproducibility metadata.
 
-This run showcases DataForge’s multi-agent system, including schema design, synthetic generation (where required), validation, observability, and full reproducibility with metadata, manifest, and baseline model evaluation.
+---
 
-Everything in this folder is self-contained — judges can validate, reproduce, and audit without accessing the internet.
+## Included artifacts (example run)
+The example run `artifacts/airbnb_20251121/` contains:
+- `*.csv` — final dataset  
+- `*.metadata.yaml` — schema + provenance + seed  
+- `*.manifest.json` — sha256 checksums + reproduction info  
+- `*.summary.json` — column statistics  
+- `*.ks.json` — distribution sanity checks  
+- `*.baseline.json` — baseline model performance (R² + CI)  
+- `*_heatmap.png`, `*_hist.png` — quick visuals  
+- `*.zip` — full bundle for judges
 
-📁 Artifact Contents
-1. Main dataset
-File	Description
-*.csv	The final dataset (tabular, cleaned, validated), ready for ML workflows and Kaggle competitions.
-2. Metadata & Provenance
-File	Description
-*.metadata.yaml	Schema of all columns, datatypes, row count, generation method, fallback usage, seed, timestamp, and ethical provenance.
-*.manifest.json	SHA256 checksum, reproducibility info, seed, and model-usage flag (Gemini used or fallback).
-3. Validation & Quality Checks
-File	Description
-*.summary.json	Column-level statistics: mean, std, min/max, missingness, unique values.
-*.ks.json	Kolmogorov–Smirnov tests for numeric distribution sanity checks.
-*.baseline.json	Baseline LinearRegression performance (R² + bootstrapped 95% confidence interval).
-*.human_review.json	Template for manual reviewer notes (for human-in-the-loop validation).
-4. Visuals
-File	Description
-*_heatmap.png	Correlation matrix for numeric features.
-*_hist.png files	Distribution histograms for key features (ratings, occupancy rate, etc.).
-5. Bundle
-File	Description
-*.zip	All files zipped together for fast download and offline sharing.
-🔁 Reproducibility Instructions
-▶️ Regenerate the dataset
+---
 
-Using DataForge:
-
-prompt = "Build me a dataset for predicting Airbnb in 2025"
-seed = 42
-rows = 5000
+## How to reproduce (local / Kaggle)
+1. Clone this repo:
+```bash
+git clone https://github.com/NAYANESHREDDY/DataForge-The-Truly-Resilient-Autonomous-Dataset-Builder-Agent.git
+cd DataForge-The-Truly-Resilient-Autonomous-Dataset-Builder-Agent
 
 
-Running the DataForge notebook or API with these parameters will produce a bit-identical synthetic dataset (identical SHA256 hash), assuming synthetic fallback mode was used.
+(Optional) Create virtualenv:
 
-▶️ Validate using included utilities
-
-If you're running locally:
-
-python validation_and_eval.py artifacts/airbnb_20251121/*.csv
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
 
-This will recompute:
+Run the main notebook or script (example):
 
-R² baseline
+# if using the notebook: open in Colab or Kaggle and click "Run all".
+# or run a script:
+python src/run_dataforge.py --prompt "Build me dataset for predicting Airbnb occupancy 2025" --rows 5000
 
-Confidence intervals
 
-Distribution tests
+Inspect artifacts in artifacts/<run_id>/.
 
-Feature statistics
+Quick evaluation checklist for judges
 
-Expected R² (from this run):
-~0.72 to 0.76, depending on built-in noise injection.
+✅ Does *.metadata.yaml include "synthetic": true or "fallback_used"?
 
-🔍 Notes on This Run
+✅ Does manifest.json include a SHA256 and seed?
 
-Real-source scouting failed (403/404): Common on Kaggle/Colab restricted environments.
+✅ baseline.json shows R² and CI.
 
-The system used TaskAwareSyntheticFallback to generate realistic Airbnb data using:
+✅ Visuals show reasonable distributions.
 
-host activity patterns
+✅ human_review.json present for human sign-off.
 
-average guest ratings
+Technology & key concepts
 
-occupancy distributions
+Gemini (google-genai) for schema proposals and prompt expansion (if API key provided)
 
-price curves by season
+Pandas / Numpy / SciPy / scikit-learn for harvesting, cleaning and baseline modeling
 
-city-level features modeled using plausible tourism data
+Faker for high-quality text/categorical values in synthetic mode
 
-All synthetic outputs are clearly marked in metadata.
+Session-based state & provenance saved in metadata and manifest
 
-This is intentional and demonstrates the “resilient fallback” feature — one of DataForge’s key innovations.
+License
 
-🧪 How Judges Can Inspect the Dataset
+Code: MIT License — see LICENSE.
+Generated datasets in artifacts/ are released under CC-BY-SA 4.0 (see dataset metadata.yaml entries).
 
-Recommended steps:
+Citation
 
-1. Open the metadata file
+If you use DataForge, please cite:
 
-Check:
+Chennareddy, Nayanesh Reddy (2025).
+DataForge: The Resilient Autonomous Dataset Builder Agent.
+https://github.com/NAYANESHREDDY/DataForge-The-Truly-Resilient-Autonomous-Dataset-Builder-Agent
 
-Schema
+Next additions (planned)
 
-Synthetic flag
+Add notebooks/dataforge.ipynb (single-run "Run All")
 
-Generating seed
+Add src/ module files & a requirements.txt (already prepared)
 
-Generator model
+Add deployment/ containing Dockerfile and api.py for Cloud Run demo
 
-Value distributions per field
+Add unit tests under tests/ and a GitHub Actions workflow
 
-2. Verify CSV integrity
+Contact
 
-Using manifest SHA256.
+Nayanesh Reddy Chennareddy — GitHub: NAYANESHREDDY
 
-3. Load summary.json
 
-Inspect:
+---
 
-missingness
+### After adding the files
+1. `git add LICENSE CITATION.cff README.md`  
+2. `git commit -m "Add license, citation and polished README"`  
+3. `git push`
 
-category balance
+---
 
-numeric feature distribution
+## What you *still* likely need (from the sample repo checklist)
+You now have the highest-priority items. After pushing the above, consider adding next:
 
-4. Review baseline.json
+- `requirements.txt` (I provided content earlier) — **if you haven’t yet, add it.**
+- `notebooks/dataforge.ipynb` (single “Run all” notebook).
+- `src/` code files (move notebook code into modular source).
+- `CITATION`/BibTeX or `CITATION.txt` (we added CFF already).
+- `deployment/` (Dockerfile + `api.py`) if you want the bonus points for deployment.
+- `tests/` and optionally a simple GitHub Actions CI.
 
-Confirms dataset is predictive enough for ML tasks.
-
-5. Examine plots
-
-Heatmap
-
-Histograms
-for quality & realism.
-
-⚖️ Licensing and Usage
-
-This artifact is distributed under:
-CC-BY-SA 4.0
-Synthetic-only; no personal data; compliant with Kaggle Capstone requirements.
+If you want, I can now *automatically generate* the `src/` skeleton and `deployment/Dockerfile + api.py` and `tests/` for you — ready to paste. Say **“generate src + deployment + tests”** and I will output them immediately.
+::contentReference[oaicite:0]{index=0}
