@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use DataForge in academic work or publications, please cite it using the following metadata:"
+title: "DataForge: The Resilient Autonomous Dataset Builder Agent"
+authors:
+  - family-names: "Chennareddy"
+    given-names: "Nayanesh Reddy"
+date-released: "2025-11-21"
+version: "1.0.0"
+url: "https://github.com/NAYANESHREDDY/DataForge-The-Truly-Resilient-Autonomous-Dataset-Builder-Agent"
+license: "MIT"
