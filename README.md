@@ -110,22 +110,3 @@ Nayanesh Reddy Chennareddy — GitHub: NAYANESHREDDY
 
 ---
 
-### After adding the files
-1. `git add LICENSE CITATION.cff README.md`  
-2. `git commit -m "Add license, citation and polished README"`  
-3. `git push`
-
----
-
-## What you *still* likely need (from the sample repo checklist)
-You now have the highest-priority items. After pushing the above, consider adding next:
-
-- `requirements.txt` (I provided content earlier) — **if you haven’t yet, add it.**
-- `notebooks/dataforge.ipynb` (single “Run all” notebook).
-- `src/` code files (move notebook code into modular source).
-- `CITATION`/BibTeX or `CITATION.txt` (we added CFF already).
-- `deployment/` (Dockerfile + `api.py`) if you want the bonus points for deployment.
-- `tests/` and optionally a simple GitHub Actions CI.
-
-If you want, I can now *automatically generate* the `src/` skeleton and `deployment/Dockerfile + api.py` and `tests/` for you — ready to paste. Say **“generate src + deployment + tests”** and I will output them immediately.
-::contentReference[oaicite:0]{index=0}
