@@ -1,4 +1,4 @@
-3) README.md (polished root README for judges)
+
 
 Create or replace README.md in the repo root with the following content (it includes links, license & citation blocks and points judges will look for):
 
